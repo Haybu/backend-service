@@ -1,0 +1,40 @@
+server:
+  port: 8082
+
+logging:
+  level:
+    root: INFO
+    org.springframework.web: INFO
+    org.springframework.cloud.kubernetes: DEBUG
+    org.springframework.cloud.kubernetes.config: DEBUG
+    org.springframework.cloud.kubernetes.config.reload: DEBUG
+#    org.springframework.boot.autoconfigure: DEBUG
+
+spring:
+  application:
+    name: backend
+  cloud:
+    kubernetes:
+      reload:
+        enabled: false
+        mode: polling
+        period: 5000
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: '*'
+
+---
+spring:
+  profiles: local
+  cloud:
+    kubernetes:
+      client:
+        master-url: https://192.168.64.14:8443
+        client-cert-file: /Users/hmohamed/.minikube/client.crt
+        client-key-file: /Users/hmohamed/.minikube/client.key
+        #master-url: https://kubernetes.docker.internal:6443
+        ca-cert-file: /Users/hmohamed/.minikube/ca.crt
+#        namespace: default

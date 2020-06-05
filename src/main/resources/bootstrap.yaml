@@ -1,0 +1,13 @@
+spring:
+  application:
+    name: backend
+  cloud:
+    kubernetes:
+      enabled: true
+      config:
+        enabled: true
+        name: backend
+        enableApi: false
+        enableK8sController: true
+        uri: http://localhost:8080/configmaps
+#        namespace: default

@@ -1,0 +1,12 @@
+apiVersion: skaffold/v2beta5
+kind: Config
+metadata:
+  name: backend-service-skaffolding
+build:
+  artifacts:
+  - image: haybu/backend-service
+    context: .
+    jib: {}
+deploy:
+  kustomize:
+    paths: ["kustomize/base"]

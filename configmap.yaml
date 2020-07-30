@@ -1,0 +1,9 @@
+apiVersion: v1
+kind: ConfigMap
+metadata:
+  name: backend
+  namespace: default
+data:
+  prop.direction: South
+  prop.temp: "90"
+

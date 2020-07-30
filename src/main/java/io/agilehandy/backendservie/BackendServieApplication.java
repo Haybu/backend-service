@@ -30,7 +30,7 @@ class MyRestController {
 
 	private final MyConfig myConfig;
 
-	MyRestController(MyConfig myConfig) {
+	public MyRestController(MyConfig myConfig) {
 		this.myConfig = myConfig;
 	}
 
@@ -52,22 +52,22 @@ class MyRestController {
 @ConfigurationProperties(prefix = "prop")
 class MyConfig {
 
-	private String direction;
+	private String direction = "no direction";
 	private int temp;
 
-	String getDirection() {
+	public String getDirection() {
 		return direction;
 	}
 
-	void setDirection(String direction) {
+	public void setDirection(String direction) {
 		this.direction = direction;
 	}
 
-	int getTemp() {
+	public int getTemp() {
 		return temp;
 	}
 
-	void setTemp(int temp) {
+	public void setTemp(int temp) {
 		this.temp = temp;
 	}
 }
@@ -75,8 +75,11 @@ class MyConfig {
 @Component
 class MyBean {
 
-	@Autowired
-	private MyConfig config;
+	private final MyConfig config;
+
+	public MyBean(MyConfig config) {
+		this.config = config;
+	}
 
 	@Scheduled(fixedDelay = 5000)
 	public void hello() {

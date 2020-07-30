@@ -7,7 +7,8 @@ spring:
       config:
         enabled: true
         name: backend
-        enableApi: false
-        enableK8sController: true
-        uri: http://localhost:8080/configmaps
-#        namespace: default
+#        namespace: spring
+#        enableApi: false
+#        enableK8sController: true
+#        uri: http://localhost:8080/configmaps
+##        namespace: default

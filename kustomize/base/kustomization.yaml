@@ -5,6 +5,7 @@ commonLabels:
 resources:
   - service-account.yaml
   - configmap.yaml
-  - configmap-mounted.yaml
+  - configmap-mounted-file.yaml
+  - configmap-mounted-literals.yaml
   - deployment.yaml
   - service.yaml

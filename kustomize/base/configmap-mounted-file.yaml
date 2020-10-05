@@ -1,7 +1,7 @@
 apiVersion: v1
 kind: ConfigMap
 metadata:
-  name: backend-mounted
+  name: backend-mounted-file
   namespace: default
 data:
   application.yaml: |-

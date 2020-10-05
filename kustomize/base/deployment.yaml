@@ -20,12 +20,25 @@ spec:
       containers:
       - image: haybu/backend-service
         name: backend-service
-        resources: {}
+        ports:
+          - containerPort: 8080
+        livenessProbe:
+          initialDelaySeconds: 10
+          httpGet:
+            path: /actuator/health/liveness
+            port: 8080
+        readinessProbe:
+          initialDelaySeconds: 5
+          httpGet:
+            path: /actuator/health/readiness
+            port: 8080
+#        env:
+#        - name: SPRING_CONFIG_IMPORT
+#          value: /etc/config/
         volumeMounts:
           - name: config-volume
             mountPath: /etc/config
       volumes:
         - name: config-volume
           configMap:
-            name: backend-mounted
-status: {}
+            name: backend-mounted-file

@@ -1,5 +1,5 @@
 server:
-  port: 8082
+  port: 8080
 
 logging:
   level:
@@ -8,13 +8,24 @@ logging:
     org.springframework.cloud.kubernetes: DEBUG
     org.springframework.cloud.kubernetes.config: DEBUG
     org.springframework.cloud.kubernetes.config.reload: DEBUG
+    org.springframework.boot.context.config: trace
 #    org.springframework.boot.autoconfigure: DEBUG
 
+
+
 spring:
+  log:
+    level:
+      org:
+        springframework:
+          boot:
+            context:
+              config: trace
+
   cloud:
     kubernetes:
       reload:
-        enabled: true
+        enabled: false
         mode: polling
 #        period: 5000
 

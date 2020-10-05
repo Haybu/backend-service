@@ -54,6 +54,24 @@ class MyConfig {
 
 	private String direction = "no direction";
 	private int temp;
+	private String make = "no make";
+	private String model;
+
+	public String getMake() {
+		return make;
+	}
+
+	public void setMake(String make) {
+		this.make = make;
+	}
+
+	public String getModel() {
+		return model;
+	}
+
+	public void setModel(String model) {
+		this.model = model;
+	}
 
 	public String getDirection() {
 		return direction;
@@ -83,6 +101,8 @@ class MyBean {
 
 	@Scheduled(fixedDelay = 5000)
 	public void hello() {
-		System.out.println("The message is: " + config.getDirection());
+
+		System.out.println("The direction is: " + config.getDirection());
+		System.out.println("The make is: " + config.getMake());
 	}
 }

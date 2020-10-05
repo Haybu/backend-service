@@ -21,4 +21,11 @@ spec:
       - image: haybu/backend-service
         name: backend-service
         resources: {}
+        volumeMounts:
+          - name: config-volume
+            mountPath: /etc/config
+      volumes:
+        - name: config-volume
+          configMap:
+            name: backend-mounted
 status: {}

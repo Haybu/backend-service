@@ -4,5 +4,7 @@ commonLabels:
   app: app
 resources:
   - service-account.yaml
+  - configmap.yaml
+  - configmap-mounted.yaml
   - deployment.yaml
   - service.yaml
